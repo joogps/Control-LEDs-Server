@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
+const router = express.Router();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-
 const bodyParser = require('body-parser');
 
+app.use('/', router);
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
