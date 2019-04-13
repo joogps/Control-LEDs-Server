@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
 	if (pin && state)
 		io.sockets.emit('action', {pin: pin, state: state});
 
-	res.sendFile('blank.html');
+	res.sendFile(path.join(__dirname+'/blank.html'));
 });
 
 io.on('connection', function (socket) {
