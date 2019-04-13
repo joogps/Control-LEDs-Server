@@ -1,11 +1,10 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
 const http = require('http').Server(app);
+const path = require('path');
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 
-app.use('/', router);
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
@@ -13,7 +12,7 @@ app.use(bodyParser.urlencoded({
 let port = process.env.PORT || 8080;
 http.listen(port);
 
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
 	let pin = req.query.pin;
 	let state = req.query.state;
 
