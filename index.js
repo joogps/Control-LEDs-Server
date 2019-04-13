@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({
 let port = process.env.PORT || 8080;
 http.listen(port);
 
-app.get('/', function(req, res) {
+router.get('/', function(req, res) {
 	let pin = req.query.pin;
 	let state = req.query.state;
 
